@@ -2,7 +2,7 @@
 
 This repository contains code for predicting stock prices using LSTM (Long Short-Term Memory) neural networks. The goal is to predict the next day's closing price based on the previous five days' data, including the opening price, high price, low price, and closing price.
 
-The code is implemented in Python using the PyTorch library and includes a custom dataset class, a neural network model, and training code. Additionally, it mentions the integration of a tweet sentiment indicator, although the implementation details for this aspect are not provided in the code snippet.
+The code is implemented in Python using the PyTorch library and includes a custom dataset class, a neural network model, and training code. Additionally, it may include the integration of a tweet sentiment indicator, although the implementation details for this aspect are not yet finalized. 
 
 ## Prerequisites
 
