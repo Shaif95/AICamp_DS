@@ -38,14 +38,20 @@ class Net(nn.Module):
         super(Net, self).__init__()
         self.lstm = nn.LSTM(input_size=5, hidden_size=128, num_layers=10, batch_first=True) 
         self.relu = nn.ReLU()
-        self.fc1 = nn.Linear(128, 1)
-    
+        self.fc1 = nn.Linear(128, 64) 
+        self.fc2 = nn.Linear(64, 32)
+        self.fc3 = nn.Linear(32, 1)
+
     def forward(self, x):
         h0 = torch.zeros(10, x.size(0), 128).cuda()
         c0 = torch.zeros(10, x.size(0), 128).cuda()
         output, (hn, cn) = self.lstm(x, (h0, c0))
         x = self.relu(hn[-1])
         x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        x = self.relu(x)
+        x = self.fc3(x)
         x = x.view(-1)
         return x
     
